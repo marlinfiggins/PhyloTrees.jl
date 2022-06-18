@@ -3,6 +3,10 @@ uuid = "75747933-a6e3-4721-8f2b-8747ec72c830"
 authors = ["marlinfiggins <marlinfiggins@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+AbstractTrees = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+
 [compat]
 julia = "1"
 
