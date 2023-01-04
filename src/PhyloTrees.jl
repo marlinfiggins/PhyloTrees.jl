@@ -1,6 +1,7 @@
 module PhyloTrees
 
   using AbstractTrees #: printnode, nextsibling, parentlinks, siblinglinks, children
+  using CairoMakie
   using Base #: eltype, parent, pairs 
   #import Base: iterate, IteratorSize, IteratorEltype 
 

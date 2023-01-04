@@ -1,8 +1,8 @@
 # Reset heights
 # Need a function to traverse and set heights for all objects
 function traversetree(cur_node::Node;
-  include_cond=k -> isleaf(k),
-  traverse_cond=k -> true)
+  include_cond = k -> isleaf(k),
+  traverse_cond = k -> true)
 
   # Set the height of root to be zero
   cur_node.data.height = 0.0
@@ -30,12 +30,12 @@ end
 
 
 # This should some tree structure with X and Y values
-struct PlotTree{T<:Real}
+struct PlotTree{T<:Real, V <:Node}
   x::Vector{T}
   y::Vector{T}
-  objects::Vector{V} where {V <: Node}
-  mapping::Dict{V,Int} where {V <: Node}
-  PlotTree(x::Vector{T}, y::Vector{T}, objects) where {T} = new{T}(x, y, objects, Dict(x => i for (i, x) in enumerate(objects)))
+  objects::Vector{V}
+  mapping::Dict{V,Int}
+    PlotTree(x::Vector{T}, y::Vector{T}, objects::Vector{V}) where {T, V} = new{T, V}(x, y, objects, Dict(x => i for (i, x) in enumerate(objects)))
 end
 
 function drawtree(cur_node, order=nothing)
@@ -103,6 +103,6 @@ function addbranches!(ax, T::PlotTree)
   end
   
   for (x,y) in zip(bx,by)
-        lines!(ax, x, y, color=:black)
+    lines!(ax, x, y, color=:black)
   end   
 end
